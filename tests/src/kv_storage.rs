@@ -48,8 +48,8 @@ impl KVstorageContract {
         self.call(
             fn_name,
             runtime_args! {
-                "name" => key_name,
-                "value" => value
+                "hash" => key_name,
+                "signature" => value
             },
         );
     }
