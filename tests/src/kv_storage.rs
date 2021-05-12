@@ -5,8 +5,8 @@ use casper_types::{
     runtime_args, AsymmetricType, CLTyped, PublicKey, RuntimeArgs, U512,
 };
 
-pub const KV_STORAGE: &str = "kvstorage_contract";
-pub const KV_STORAGE_HASH: &str = "kvstorage_contract_hash";
+pub const KV_STORAGE: &str = "caspersign_contract";
+pub const KV_STORAGE_HASH: &str = "caspersign_contract_hash";
 
 pub struct KVstorageContract {
     pub context: TestContext,

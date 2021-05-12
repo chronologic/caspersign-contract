@@ -13,6 +13,7 @@ use contract::{
 };
 
 use types::{
+    ApiError,
     account::AccountHash,
     bytesrepr::{FromBytes, ToBytes},
     contracts::{EntryPoint, EntryPointAccess, EntryPointType, EntryPoints},
@@ -34,9 +35,9 @@ pub extern "C" fn call() {
 
     let (contract_hash, _) =
         storage::add_contract_version(contract_package_hash, entry_points, Default::default());
-    runtime::put_key("kvstorage_contract", contract_hash.into());
+    runtime::put_key("caspersign_contract", contract_hash.into());
     let contract_hash_pack = storage::new_uref(contract_hash);
-    runtime::put_key("kvstorage_contract_hash", contract_hash_pack.into())
+    runtime::put_key("caspersign_contract_hash", contract_hash_pack.into())
 }
 
 fn read_and_store<T: CLTyped + FromBytes + ToBytes>() {
@@ -60,9 +61,8 @@ fn endpoint(name: &str, value_type: CLType) -> EntryPoint {
 
 fn set_key<T: ToBytes + CLTyped>(name: &str, value: T) {
     match runtime::get_key(name) {
-        Some(key) => {
-            let key_ref = key.try_into().unwrap_or_revert();
-            storage::write(key_ref, value);
+        Some(_key) => {
+            runtime::revert(ApiError::User(1))
         }
         None => {
             let key = storage::new_uref(value).into();

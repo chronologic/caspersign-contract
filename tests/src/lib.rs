@@ -38,4 +38,19 @@ mod tests {
         assert_eq!(signature1, ret1);
         assert_eq!(signature2, ret2);
     }
+
+    #[test]
+    fn should_revert_when_trying_to_overwrite_existing_key() {
+        let signature1 = String::from("abc");
+        let signature2 = String::from("def");
+        let (ret1, ret2) = generic_test::<String>(
+            "store_signature",
+            "key1",
+            "key1",
+            signature1.clone(),
+            signature2.clone(),
+        );
+        assert_eq!(signature1, ret1);
+        assert_eq!(signature2, ret2);
+    }
 }
