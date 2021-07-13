@@ -13,11 +13,11 @@ The contract has been deployed to mainnet here: https://cspr.live/deploy/58a2cb7
 
 The CasperSign project consists of the following repositories:
 
-https://github.com/chronologic/caspersign-app-ui
-https://github.com/chronologic/caspersign-validator-ui
-https://github.com/chronologic/caspersign-signer-ui
-https://github.com/chronologic/caspersign-server
-https://github.com/chronologic/caspersign-contract (this repository)
+- https://github.com/chronologic/caspersign-app-ui
+- https://github.com/chronologic/caspersign-validator-ui
+- https://github.com/chronologic/caspersign-signer-ui
+- https://github.com/chronologic/caspersign-server
+- https://github.com/chronologic/caspersign-contract (this repository)
 
 ## Setup
 
